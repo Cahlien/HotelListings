@@ -17,7 +17,6 @@ public class WeatherForecastController : ControllerBase
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
-        Log.Information("Controller instantiated!");
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
