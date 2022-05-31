@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelListing.API.DataAccessLayer;
 
-public class HotelListingDbContext : DbContext
+public class HotelListingDbContext : DbContext, IHotelListingDbContext
 {
     public HotelListingDbContext(DbContextOptions options) : base(options)
     {
