@@ -1,4 +1,8 @@
+using HotelListing.API.Configurations;
+using HotelListing.API.Contracts;
 using HotelListing.API.DataAccessLayer;
+using HotelListing.API.Repositories;
+using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -24,6 +28,10 @@ builder.Services.AddDbContext<HotelListingDbContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
+
+builder.Services.AddAutoMapper(typeof(AutomapperConfig));
+builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
+builder.Services.AddScoped<IHotelsRepository, HotelsRepository>();
 
 var app = builder.Build();
 
